@@ -6,11 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "lint:fix": "eslint ./**/*.{ts,tsx} --fix",
-    "format": "prettier --write ."
+    "lint": "next lint; prettier --check .",
+    "format": "next lint --fix && prettier --write .",
+    "typecheck": "tsc --noEmit",
+    "link": "npx supabase link --project-ref <your-project-ref>",
+    "gen:types": "npx supabase gen types typescript --linked > supabase/database.types.ts",
+    "prepare": "husky install"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.43.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.378.0",
